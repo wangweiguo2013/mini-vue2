@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h3>{{ msg }}</h3>
+        <p>{{ count }}</p>
+        <h1>v-text</h1>
+        <p v-text="msg"></p>
+        <input type="text" v-model="count">
+        <button type="button" v-on:click="increase">add+</button>
+        <button type="button" v-on:click="changeMessage">change message!</button>
+        <button type="button" v-on:click="recoverMessage">recoverMessage!</button>
+    </div>
+    <script src="mini-vue.js"></script>
+    <script>
+        const app = new miniVue({
+            el:"#app",
+            data:{
+                msg: "hello,mini vue.js",
+                count: 666
+            },
+            methods:{
+                increase(){
+                    console.log(this.count)
+                    this.count++;
+                },
+                changeMessage(){
+                    this.msg = "hello,eveningwater!";
+                },
+                recoverMessage(){
+                    console.log(this)
+                    this.msg = "hello,mini vue.js";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
